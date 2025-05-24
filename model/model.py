@@ -35,7 +35,6 @@ class Model:
     def getYears(self):
         return DAO.getAllYears()
 
-
     def getTeamsOfYear(self, year):
         self._allTeams = DAO.getTeamsOfYear(year)
         for t in self._allTeams:

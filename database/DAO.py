@@ -47,12 +47,12 @@ class DAO():
 
         cursor = conn.cursor(dictionary=True)
         query = """select t.teamCode, t.ID, sum(s.salary) as totSalary
-                 from salaries s, teams t, appearances a) 
-                where s.`year` = t.`year` and t.`year` = a.`year` 
-                and a.`year` = 2015
-                and t.ID = a.teamID 
-                and s.playerID = a.playerID 
-                group by t.teamCode"""
+                    from salaries s, teams t, appearances a
+                    where s.`year` = t.`year` and t.`year` = a.`year` 
+                    and a.`year` = %s
+                    and t.ID = a.teamID 
+                    and s.playerID = a.playerID 
+                    group by t.teamCode"""
 
         cursor.execute(query, (year,))
 
